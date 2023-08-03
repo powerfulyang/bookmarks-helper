@@ -1,5 +1,5 @@
 {
-  "name": "chrome-extensions",
+  "name": "bookmarks-helper",
   "version": "1.0.0",
   "description": "chrome-extensions template",
   "main": "index.js",
@@ -69,6 +69,7 @@
     "css-loader": "6.8.1",
     "date-fns": "^2.30.0",
     "lucide-react": "^0.263.1",
+    "pinyin-pro": "3.16.1",
     "postcss-loader": "7.3.3",
     "react": "18.2.0",
     "react-day-picker": "^8.8.0",

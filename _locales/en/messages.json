@@ -1,11 +1,11 @@
 {
   "extensionName": {
-    "message": "name"
+    "message": "Bookmarks-Helper"
   },
   "extensionDescription": {
-    "message": "description"
+    "message": "This extension helps you to manage your bookmarks."
   },
   "extensionActionTitle": {
-    "message": "Tools"
+    "message": "Bookmarks-Helper"
   }
 }

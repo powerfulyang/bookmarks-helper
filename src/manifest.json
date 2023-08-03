@@ -49,6 +49,6 @@
     "<all_urls>"
   ],
   "permissions": [
-    "cookies"
+    "bookmarks"
   ]
 }

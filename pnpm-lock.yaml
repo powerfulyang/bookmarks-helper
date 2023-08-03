@@ -116,6 +116,9 @@ dependencies:
   lucide-react:
     specifier: ^0.263.1
     version: 0.263.1(react@18.2.0)
+  pinyin-pro:
+    specifier: 3.16.1
+    version: 3.16.1
   postcss-loader:
     specifier: 7.3.3
     version: 7.3.3(postcss@8.4.27)(webpack@5.88.2)
@@ -8367,6 +8370,10 @@ packages:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
     dev: true
+
+  /pinyin-pro@3.16.1:
+    resolution: {integrity: sha512-Pm5vKjAO7EZ1w39Xw9/yzynNDbqFVWkvgCSPyHvvCCrhWrkeOK//2FvX2uoWb2yUzGTsruUqrAaKySG8TQV/0Q==}
+    dev: false
 
   /pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
