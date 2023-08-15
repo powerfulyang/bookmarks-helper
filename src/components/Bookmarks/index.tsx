@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { pinyin } from 'pinyin-pro';
 import { useState } from 'react';
 import browser from 'webextension-polyfill';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader } from '@/components/ui/card';
 
@@ -50,6 +51,18 @@ export const Bookmarks = () => {
       });
     },
   });
+
+  const { data: histories } = useQuery({
+    queryKey: ['history', search],
+    keepPreviousData: true,
+    queryFn: () => {
+      return browser.history.search({
+        text: search,
+        maxResults: 50,
+      });
+    },
+  });
+
   return (
     <div className="">
       <div className="sticky top-0 bg-white p-4 shadow">
@@ -61,15 +74,34 @@ export const Bookmarks = () => {
           }}
         />
       </div>
-      {data?.map((bookmark) => (
-        <Card className="m-4 transition-colors hover:bg-muted/50" key={bookmark.id}>
-          <a href={bookmark.url} target="_blank" rel="noreferrer">
-            <CardHeader title={bookmark.url} className="text-sm font-medium">
-              {bookmark.title}
-            </CardHeader>
-          </a>
-        </Card>
-      ))}
+      <Tabs defaultValue="bookmark" className="mt-4 w-full text-center">
+        <TabsList className="sticky top-20">
+          <TabsTrigger value="bookmark">Bookmarks</TabsTrigger>
+          <TabsTrigger value="history">Histories</TabsTrigger>
+        </TabsList>
+        <TabsContent value="bookmark">
+          {data?.map((bookmarkItem) => (
+            <Card className="m-4 transition-colors hover:bg-muted/50" key={bookmarkItem.id}>
+              <a href={bookmarkItem.url} target="_blank" rel="noreferrer">
+                <CardHeader title={bookmarkItem.url} className="text-sm font-medium">
+                  {bookmarkItem.title}
+                </CardHeader>
+              </a>
+            </Card>
+          ))}
+        </TabsContent>
+        <TabsContent value="history">
+          {histories?.map((historyItem) => (
+            <Card className="m-4 transition-colors hover:bg-muted/50" key={historyItem.id}>
+              <a href={historyItem.url} target="_blank" rel="noreferrer">
+                <CardHeader title={historyItem.url} className="text-sm font-medium">
+                  {historyItem.title}
+                </CardHeader>
+              </a>
+            </Card>
+          ))}
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
