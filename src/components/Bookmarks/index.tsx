@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { minimatch } from 'minimatch';
 import { pinyin } from 'pinyin-pro';
 import { useState } from 'react';
 import browser from 'webextension-polyfill';
@@ -40,12 +41,16 @@ export const Bookmarks = () => {
         }).toLowerCase();
         return (
           // 匹配拼音
+          minimatch(pinyinTitle, pinyinSearch) ||
           pinyinTitle.includes(pinyinSearch) ||
           // 匹配文字
+          minimatch(bookmark.title, search) ||
           bookmark.title.includes(search) ||
           // 匹配链接
+          minimatch(bookmark.url!, search) ||
           bookmark.url?.includes(search) ||
           // 匹配链接搜索字符的拼音
+          minimatch(bookmark.url!, pinyinSearch) ||
           bookmark.url?.includes(pinyinSearch)
         );
       });

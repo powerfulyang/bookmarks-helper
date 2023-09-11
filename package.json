@@ -69,6 +69,7 @@
     "css-loader": "6.8.1",
     "date-fns": "^2.30.0",
     "lucide-react": "^0.263.1",
+    "minimatch": "9.0.3",
     "pinyin-pro": "3.16.1",
     "postcss-loader": "7.3.3",
     "react": "18.2.0",
